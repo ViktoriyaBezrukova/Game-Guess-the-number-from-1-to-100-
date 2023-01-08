@@ -1,12 +1,9 @@
 let money = 35000;
 let income = "Таксую";
-let addExpenses = "Такси, Поход в кино, Маникюр, Интернет, ЖКХ";
 let deposit = true;
 let mission = 150000;
 let period = 10;
 let budgetDay = money / 30
-
-addExpenses = addExpenses.toLowerCase();
 
 
 
@@ -14,12 +11,6 @@ addExpenses = addExpenses.toLowerCase();
 console.log(typeof money)
 console.log(typeof income)
 console.log(typeof deposit)
-console.log(addExpenses.length)
-console.log("Период равен " + period + " месяцев")
-console.log("Цель заработать " + mission + " рублей")
-console.log(Array.from(addExpenses))
-console.log(Math.floor(budgetDay)) 
-console.log("Период равен " + period + " месяцев");
 console.log("Цель заработать " + mission + " рублей");
 
 
@@ -36,10 +27,6 @@ let amount1 = +prompt("Во сколько " + expenses1 + " обойдется?
 let amount2 = +prompt("Во сколько " + expenses2 + " обойдется?");
 
 
-let budgetMonth = money - (amount1 + amount2);
-console.log("Бюджет на месяц: " + budgetMonth + "рублей");
-
-budgetDay = budgetMonth / 30;
 console.log("Бюджет на день: " + Math.floor(budgetDay) + "рублей");
 
 if(budgetDay > 1200) {
@@ -52,5 +39,29 @@ if(budgetDay > 1200) {
     alert("Что то пошло не так")
 }
 console.log(addExpenses);
-console.log("Цель будет достигнута за " + Math.ceil(mission / budgetMonth) + " месяцев(-а)")
 
+function getExpensesMonth(a, b) {
+    const sum = a + b;
+    return sum;
+}
+
+function getAccumulatedMonth(a, b) {
+    const dif = a - b;
+    return dif;
+}
+
+function getTargerMonth(a, b) {
+    const division = a / b;
+    return division
+}
+let accumulatedMonth = getAccumulatedMonth(money, getExpensesMonth(amount1, amount2))
+budgetDay = accumulatedMonth / 30;
+
+
+
+
+console.log([addExpenses])
+console.log("Сумма обязательных расходов: " + getExpensesMonth(amount1, amount2));
+console.log("Накопления за месяц: " + accumulatedMonth);
+console.log("Цель будет достигнута за " + Math.ceil(getTargerMonth(mission, accumulatedMonth)) + " месяцев(-а)")
+console.log("Бюджет на день : " + budgetDay);
