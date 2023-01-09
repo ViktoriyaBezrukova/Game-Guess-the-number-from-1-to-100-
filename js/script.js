@@ -29,16 +29,9 @@ let amount2 = +prompt("Во сколько " + expenses2 + " обойдется?
 
 console.log("Бюджет на день: " + Math.floor(budgetDay) + "рублей");
 
-if(budgetDay > 1200) {
-    alert("У вас высокий уровень дохода")
-} if(1200 >= budgetDay > 600) {
-    alert("У вас средний уровень дохода")
-} if(600 >= budgetDay > 0) {
-    alert("К сожалению у вас уровень дохода ниже среднего")
-} if (0 >= budgetDay ) {
-    alert("Что то пошло не так")
-}
-console.log(addExpenses);
+
+
+
 
 function getExpensesMonth(a, b) {
     const sum = a + b;
@@ -55,7 +48,7 @@ function getTargerMonth(a, b) {
     return division
 }
 let accumulatedMonth = getAccumulatedMonth(money, getExpensesMonth(amount1, amount2))
-budgetDay = accumulatedMonth / 30;
+budgetDay = Math.ceil(accumulatedMonth / 30);
 
 
 
@@ -65,3 +58,16 @@ console.log("Сумма обязательных расходов: " + getExpens
 console.log("Накопления за месяц: " + accumulatedMonth);
 console.log("Цель будет достигнута за " + Math.ceil(getTargerMonth(mission, accumulatedMonth)) + " месяцев(-а)")
 console.log("Бюджет на день : " + budgetDay);
+
+function getStatusIncome() {
+    if(budgetDay > 1200) {
+        return ("У вас высокий уровень дохода")
+    } else if(1200 >= budgetDay > 600) {
+        return ("У вас средний уровень дохода")
+    } if(600 >= budgetDay > 0) {
+        return ("К сожалению у вас уровень дохода ниже среднего")
+    } else {
+        return ("Что то пошло не так")
+    }
+};
+console.log(getStatusIncome());
