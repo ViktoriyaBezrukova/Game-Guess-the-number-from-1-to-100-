@@ -1,14 +1,16 @@
+let a = "      (.апарварв.)       ";
 
-
-
-if(0>= budgetDay ) {
-    console.log("Что то пошло не так")
-} else if(600>= budgetDay > 0) {
-    console.log("К сожалению у вас уровень дохода ниже среднего")
-} else if(1200 >= budgetDay && budgetDay > 600) {
-    console.log("У вас средний уровень дохода")
-} else{
-    console.log("У вас высокий уровень дохода")
+function stringOrnot(a) {
+    if (typeof a == "string") {
+        alert("I'm a string!");
+    } else{
+        alert("I'm not a string!");
+    }
+    if(a.length > 30) {
+        a = a.substr(0, 30) + "..."
+    } 
+    return a.trim()
+    
 }
 
-
+console.log(stringOrnot(a))
