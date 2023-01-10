@@ -1,17 +1,10 @@
-let a = "Ехала машина, в яму упала!      !  ";
+let arr = ["238" , "2565", "3462", "5547", "2464", "4783", "2357"];
 
 
-function stringOrnot(a) {
-    if (typeof a == "string") {
-        alert("I'm a string!");
-    } else{
-        alert("I'm not a string!");
-    }
-    a = a.trim()
-    if(a.length > 30) {
-        a = a.substr(0, 30) + "..."
-    }
-    return a
+for(let i = 0; i < arr.length; i++) {
+    if (String(arr[i])[0] == '2' || String(arr[i])[0] == '4' ) {
+    console.log(arr[i]);
+        }
 }
-console.log(a.length)
-console.log(stringOrnot(a));
+
+
