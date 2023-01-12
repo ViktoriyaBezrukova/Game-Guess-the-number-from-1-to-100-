@@ -11,19 +11,15 @@ let period = 10;
 console.log(typeof money)
 console.log(typeof income)
 console.log(typeof deposit)
-console.log("Цель заработать " + mission + " рублей");
-// money = +prompt("Ваш месячный доход?");
+console.log("Цель заработать " + mission + " рублей"); 
+
+
+
 addExpenses = prompt("Перечислите возможные расходы за рассчитываемый период через запятую (пример: Квартплата, проездной, кредит)")
 deposit = confirm("Есть ли у вас депозит в банке?");
 
-
-
 let expenses1, expenses2
 
-// let expenses1 = prompt("Введите обязательную статью расходов?");
-//     expenses2 = prompt("Введите обязательную статью расходов?");
-//     amount1 = +prompt("Во сколько " + expenses1 + " обойдется?");
-//     amount2 = +prompt("Во сколько " + expenses2 + " обойдется?");
 do {
     money = prompt("Ваш месячный доход?");
     
@@ -31,7 +27,12 @@ do {
 
 };
 
-
+let appData = {
+    budget: money,
+    budgetDay: 0,
+    budgetMonth: 0,
+    expensesMonth: 0
+};
 
 
 addExpenses.toLowerCase();
@@ -42,21 +43,15 @@ console.log("Бюджет на день: " + Math.floor(budgetDay) + "рубле
 console.log([addExpenses]);
 
 function getExpensesMonth(a, b) {
-
     let sum = 0;
-
     for(let i = 0; i < 2; i++) {
         if(i === 0){
             expenses1 = prompt("Введите обязательную статью расходов?");  
         } else if(i === 1) {
             expenses2 = prompt("Введите обязательную статью расходов?");
         }
-
-
-
-        // sum += +prompt("Во сколько рублей это обойдется?");
         do {
-            sum = prompt("Во сколько рублей это обойдется?");
+            sum += +prompt("Во сколько рублей это обойдется?");
             
         }while(isNaN(parseFloat(sum))){
         
@@ -65,10 +60,10 @@ function getExpensesMonth(a, b) {
     console.log(sum)
     return sum;
 }
-
-
-
 let expensesAmount = getExpensesMonth();
+console.log(appData)
+
+
 
 console.log("Сумма обязательных расходов: " + expensesAmount);
 
@@ -101,9 +96,6 @@ if(0>= budgetDay ) {
 } else{
     console.log("У вас высокий уровень дохода")
 }
-
-
-
 
 
 console.log("Накопления за месяц: " + accumulatedMonth);
